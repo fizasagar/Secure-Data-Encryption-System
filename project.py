@@ -92,7 +92,7 @@ if choice == "🏠 Home":
     """)
 
     if lottie_lock:
-        st_lottie(lottie_lock, speed=1, reverse=False, loop=True, height=300, key="lock")
+        st_lottie(lottie_lock, speed=1, reverse=False, loop=True, height=100, key="lock")
     else:
         st.warning("⚠️ Animation failed to load.")
 
