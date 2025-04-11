@@ -8,6 +8,15 @@ import time
 from cryptography.fernet import Fernet
 from base64 import urlsafe_b64encode
 from hashlib import pbkdf2_hmac
+from streamlit_lottie import st_lottie
+import requests
+
+# Function to load animation from a URL
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
 
 # === Data information of user ===
 DATA_FILE = "secure_data.json"
@@ -67,6 +76,9 @@ menu = [
     "📂 Retrieve Data"
 ]
 choice = st.sidebar.selectbox("Navigation", menu)
+
+# === Home Section with Lottie Animation ===
+lottie_lock = load_lottieurl("https://lottie.host/f9a74777-b064-4531-b7ea-b0793580932b/TBvPZE1dn3.json")
 
 # === Home Page ===
 if choice == "🏠 Home":
