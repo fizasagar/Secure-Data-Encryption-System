@@ -67,7 +67,7 @@ stored_data = load_data()
 # === Sidebar Navigation with Animation ===
 lottie_lock = load_lottieurl("https://lottie.host/f9a74777-b064-4531-b7ea-b0793580932b/TBvPZE1dn3.json")
 with st.sidebar:
-    st.markdown("<h3 style='text-align: center;'>🔐 Navigation</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>📌Navigation</h3>", unsafe_allow_html=True)
     if lottie_lock:
         st_lottie(lottie_lock, height=180, key="lock_animation")
 
@@ -86,12 +86,7 @@ if choice == "🏠 Home":
     - 🚫 Temporarily locked after failed login attempts  
     - 💾 No external database — fully secure and local
     """)
-
-    if lottie_lock:
-        st_lottie(lottie_lock, speed=1, reverse=False, loop=True, height=100, key="lock")
-    else:
-        st.warning("⚠️ Animation failed to load.")
-
+    
 # === Register Page ===
 elif choice == "📝 Register":
     st.subheader("Register New User 📝")
