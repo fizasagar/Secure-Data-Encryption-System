@@ -75,7 +75,7 @@ menu = [
     "💾 Store Data",
     "📂 Retrieve Data"
 ]
-choice = st.sidebar.selectbox("Navigation", menu)
+choice = st.sidebar.selectbox("📌Navigation", menu)
 
 # === Home Section with Lottie Animation ===
 lottie_lock = load_lottieurl("https://lottie.host/f9a74777-b064-4531-b7ea-b0793580932b/TBvPZE1dn3.json")
@@ -85,10 +85,10 @@ if choice == "🏠 Home":
     st.subheader("Welcome To My Secure Data Encryption System Using Streamlit!")
     st.markdown("""
     A Streamlit-based secure data storage and retrieval system where:
-    - Users store data with a unique passkey.
-    - Users decrypt data by providing the correct passkey.
-    - Multiple failed attempts result in a forced reauthorization (login page).
-    - The system operates entirely in memory without external databases.
+    - 🔐 Encrypt your data using a secure passkey  
+    - 🔓 Decrypt it anytime by entering the correct key  
+    - 🚫 Get temporarily locked after failed login attempts  
+    - 💾 No external database — fully secure and local
     """)
 
     if lottie_lock:
