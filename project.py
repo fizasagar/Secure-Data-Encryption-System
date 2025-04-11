@@ -18,7 +18,7 @@ def load_lottieurl(url):
         return None
     return r.json()
 
-# === Data information of user ===
+# === Data configuration ===
 DATA_FILE = "secure_data.json"
 SALT = b"secure_salt_value"
 LOCKOUT_DURATION = 60
@@ -26,10 +26,8 @@ LOCKOUT_DURATION = 60
 # === Session states ===
 if "authenticated_user" not in st.session_state:
     st.session_state.authenticated_user = None
-
 if "failed_attempts" not in st.session_state:
     st.session_state.failed_attempts = 0
-
 if "lockout_time" not in st.session_state:
     st.session_state.lockout_time = 0
 
@@ -66,28 +64,26 @@ def decrypt_text(encrypted_text, key):
 # === Load stored data ===
 stored_data = load_data()
 
-# === Navigation ===
-st.title("Secure Data Encryption System 🔐")
-menu = [
-    "🏠 Home",
-    "📝 Register",
-    "🔑 Login",
-    "💾 Store Data",
-    "📂 Retrieve Data"
-]
-choice = st.sidebar.selectbox("📌Navigation", menu)
-
-# === Home Section with Lottie Animation ===
+# === Sidebar Navigation with Animation ===
 lottie_lock = load_lottieurl("https://lottie.host/f9a74777-b064-4531-b7ea-b0793580932b/TBvPZE1dn3.json")
+with st.sidebar:
+    st.markdown("<h3 style='text-align: center;'>🔐 Navigation</h3>", unsafe_allow_html=True)
+    if lottie_lock:
+        st_lottie(lottie_lock, height=180, key="lock_animation")
+
+menu = ["🏠 Home", "📝 Register", "🔑 Login", "💾 Store Data", "📂 Retrieve Data"]
+choice = st.sidebar.selectbox("Select Page", menu)
+
+# === Main Title ===
+st.title("Secure Data Encryption System")
 
 # === Home Page ===
 if choice == "🏠 Home":
     st.subheader("Welcome To My Secure Data Encryption System Using Streamlit!")
     st.markdown("""
-    A Streamlit-based secure data storage and retrieval system where:
     - 🔐 Encrypt your data using a secure passkey  
     - 🔓 Decrypt it anytime by entering the correct key  
-    - 🚫 Get temporarily locked after failed login attempts  
+    - 🚫 Temporarily locked after failed login attempts  
     - 💾 No external database — fully secure and local
     """)
 
@@ -96,9 +92,8 @@ if choice == "🏠 Home":
     else:
         st.warning("⚠️ Animation failed to load.")
 
-
 # === Register Page ===
-elif choice ==  "📝 Register":
+elif choice == "📝 Register":
     st.subheader("Register New User 📝")
     username = st.text_input("Choose Username")
     password = st.text_input("Choose Password", type="password")
