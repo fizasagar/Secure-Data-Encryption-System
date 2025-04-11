@@ -69,7 +69,7 @@ menu = [
 choice = st.sidebar.selectbox("Navigation", menu)
 
 # === Home Page ===
-if choice == "Home":
+if choice == "🏠 Home":
     st.subheader("Welcome To My Secure Data Encryption System Using Streamlit!")
     st.markdown("""
     A Streamlit-based secure data storage and retrieval system where:
@@ -80,7 +80,7 @@ if choice == "Home":
     """)
 
 # === Register Page ===
-elif choice == "Register":
+elif choice ==  "📝 Register":
     st.subheader("Register New User 📝")
     username = st.text_input("Choose Username")
     password = st.text_input("Choose Password", type="password")
@@ -100,7 +100,7 @@ elif choice == "Register":
             st.error("Both fields are required.")
 
 # === Login Page ===
-elif choice == "Login":
+elif choice == "🔑 Login":
     st.subheader("User Login 🔑")
 
     if time.time() < st.session_state.lockout_time:
@@ -127,7 +127,7 @@ elif choice == "Login":
                 st.stop()
 
 # === Store Encrypted Data Page ===
-elif choice == "Store Data":
+elif choice == "💾 Store Data":
     if not st.session_state.authenticated_user:
         st.warning("🔐 Please login first.")
     else:
@@ -145,7 +145,7 @@ elif choice == "Store Data":
                 st.error("All fields are required.")
 
 # === Retrieve Decrypted Data Page ===
-elif choice == "Retrieve Data":
+elif choice == "📂 Retrieve Data":
     if not st.session_state.authenticated_user:
         st.warning("🔓 Please login first.")
     else:
