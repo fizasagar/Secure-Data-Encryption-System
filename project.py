@@ -91,6 +91,12 @@ if choice == "🏠 Home":
     - The system operates entirely in memory without external databases.
     """)
 
+    if lottie_lock:
+        st_lottie(lottie_lock, speed=1, reverse=False, loop=True, height=300, key="lock")
+    else:
+        st.warning("⚠️ Animation failed to load.")
+
+
 # === Register Page ===
 elif choice ==  "📝 Register":
     st.subheader("Register New User 📝")
