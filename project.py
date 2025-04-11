@@ -59,7 +59,13 @@ stored_data = load_data()
 
 # === Navigation ===
 st.title("Secure Data Encryption System 🔐")
-menu = ["Home", "Register", "Login", "Store Data", "Retrieve Data"]
+menu = [
+    "🏠 Home",
+    "📝 Register",
+    "🔑 Login",
+    "💾 Store Data",
+    "📂 Retrieve Data"
+]
 choice = st.sidebar.selectbox("Navigation", menu)
 
 # === Home Page ===
