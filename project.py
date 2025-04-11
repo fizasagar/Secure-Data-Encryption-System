@@ -76,7 +76,6 @@ choice = st.sidebar.selectbox("Select Page", menu)
 
 # === Main Title ===
 st.title("Secure Data Encryption System🔐")
-st.icon="🔐"
 
 # === Home Page ===
 if choice == "🏠 Home":
